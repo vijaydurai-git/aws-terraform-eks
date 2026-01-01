@@ -43,6 +43,9 @@ module "node_module" {
   eks_private_1_in               = module.vpc_module.eks_private_1_out
   eks_private_2_in               = module.vpc_module.eks_private_2_out
   eks_node_launch_template_id_in = module.node_group_template.eks_node_launch_template_id_out
+  eks_node_desired_size_in       = var.eks_node_desired_size
+  eks_node_max_size_in           = var.eks_node_max_size
+  eks_node_min_size_in           = var.eks_node_min_size
 
 }
 

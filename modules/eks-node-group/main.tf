@@ -6,9 +6,9 @@ resource "aws_eks_node_group" "node-grp" {
   capacity_type   = "ON_DEMAND"
 
   scaling_config {
-    desired_size = 2
-    max_size     = 3
-    min_size     = 1
+    desired_size = var.eks_node_desired_size_in
+    max_size     = var.eks_node_max_size_in
+    min_size     = var.eks_node_min_size_in
   }
 
   update_config {
