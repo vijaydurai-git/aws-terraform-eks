@@ -17,7 +17,7 @@ resource "aws_eks_node_group" "node-grp" {
 
   launch_template {
     id      = var.eks_node_launch_template_id_in
-    version = "$Latest"  
+    version = "$Latest"
   }
 
   tags = {

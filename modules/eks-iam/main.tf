@@ -53,8 +53,8 @@ POLICY
 }
 
 resource "aws_iam_role" "eks_ebs_csi_driver_role" {
-  name               = "AmazonEKS_EBS_CSI_DriverRole"
-  path               = "/"
+  name                 = "AmazonEKS_EBS_CSI_DriverRole"
+  path                 = "/"
   max_session_duration = 3600
 
   assume_role_policy = jsonencode({

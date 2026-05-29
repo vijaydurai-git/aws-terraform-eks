@@ -1,5 +1,5 @@
 resource "aws_eip" "eks_eip" {
-  domain   = "vpc"
+  domain = "vpc"
 
   tags = {
     Name = "eks_eip"

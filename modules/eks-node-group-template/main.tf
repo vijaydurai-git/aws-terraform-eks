@@ -7,10 +7,10 @@ resource "aws_launch_template" "eks_node_launch_template" {
 
 
   block_device_mappings {
-    device_name = "/dev/xvda"  # Ensure this matches your AMI's expected device name
+    device_name = "/dev/xvda" # Ensure this matches your AMI's expected device name
     ebs {
       volume_size = 20
-      volume_type = "gp2"      # Specify volume type if needed
+      volume_type = "gp2" # Specify volume type if needed
     }
   }
 

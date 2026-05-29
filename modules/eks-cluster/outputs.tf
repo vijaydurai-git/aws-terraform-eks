@@ -8,7 +8,7 @@ output "eks_cluster_sg_id_out" {
 
 }
 
-output "eks_cluster_oidc_issuer_out" {                           #isssuer means url
+output "eks_cluster_oidc_issuer_out" { #isssuer means url
   value = aws_eks_cluster.eks.identity[0].oidc[0].issuer
 
 }

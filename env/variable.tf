@@ -20,3 +20,7 @@ variable "eks_node_max_size" {
 variable "eks_node_min_size" {
   default = 1
 }
+
+variable "eks_cluster_version" {
+  default = "1.30"
+}
