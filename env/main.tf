@@ -23,12 +23,12 @@ module "iam_module" {
 
 module "cluster_module" {
 
-  source                  = "../modules/eks-cluster"
-  eks_cluster_role_arn_in = module.iam_module.eks_cluster_role_arn_out
-  eks_public_1_in         = module.vpc_module.eks_public_1_out
-  eks_public_2_in         = module.vpc_module.eks_public_2_out
-  eks_private_1_in        = module.vpc_module.eks_private_1_out
-  eks_private_2_in        = module.vpc_module.eks_private_2_out
+  source                         = "../modules/eks-cluster"
+  eks_cluster_role_arn_in        = module.iam_module.eks_cluster_role_arn_out
+  eks_public_1_in                = module.vpc_module.eks_public_1_out
+  eks_public_2_in                = module.vpc_module.eks_public_2_out
+  eks_private_1_in               = module.vpc_module.eks_private_1_out
+  eks_private_2_in               = module.vpc_module.eks_private_2_out
   eks_ebs_csi_driver_role_arn_in = module.iam_module.eks_ebs_csi_driver_role_arn_out
 
 }
