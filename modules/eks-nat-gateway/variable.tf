@@ -1,3 +1,5 @@
-variable "eks_public_1_in" {
+variable "eks-public-1-in" {
 
 }
+
+variable "eks-env-in" {}

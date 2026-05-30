@@ -1,14 +1,14 @@
 resource "aws_eks_node_group" "node-grp" {
-  cluster_name    = var.eks_cluster_id_in
-  node_group_name = "eks-node-group"
-  node_role_arn   = var.eks_node_role_arn_in
-  subnet_ids      = [var.eks_private_1_in, var.eks_private_2_in]
+  cluster_name    = var.eks-cluster-id-in
+  node_group_name = "${var.eks-env-in}-node-group"
+  node_role_arn   = var.eks-node-role-arn-in
+  subnet_ids      = [var.eks-private-1-in, var.eks-private-2-in]
   capacity_type   = "ON_DEMAND"
 
   scaling_config {
-    desired_size = var.eks_node_desired_size_in
-    max_size     = var.eks_node_max_size_in
-    min_size     = var.eks_node_min_size_in
+    desired_size = var.eks-node-desired-size-in
+    max_size     = var.eks-node-max-size-in
+    min_size     = var.eks-node-min-size-in
   }
 
   update_config {
@@ -16,12 +16,12 @@ resource "aws_eks_node_group" "node-grp" {
   }
 
   launch_template {
-    id      = var.eks_node_launch_template_id_in
+    id      = var.eks-node-launch-template-id-in
     version = "$Latest"
   }
 
   tags = {
     "k8s.io/cluster-autoscaler/enabled"                  = "true"
-    "k8s.io/cluster-autoscaler/${var.eks_cluster_id_in}" = "owned"
+    "k8s.io/cluster-autoscaler/${var.eks-cluster-id-in}" = "owned"
   }
 }

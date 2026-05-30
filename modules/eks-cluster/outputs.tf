@@ -1,4 +1,4 @@
-output "eks_cluster_id_out" {
+output "eks-cluster-id-out" {
   value = aws_eks_cluster.eks.id
 }
 
@@ -8,17 +8,17 @@ output "eks_cluster_sg_id_out" {
 
 }
 
-output "eks_cluster_oidc_issuer_out" { #isssuer means url
+output "eks-cluster-oidc-issuer-out" { #isssuer means url
   value = aws_eks_cluster.eks.identity[0].oidc[0].issuer
 
 }
 
 
-output "eks_cluster_oidc_thumbprint_out" {
-  value = data.tls_certificate.eks_tls_certificate.certificates[0].sha1_fingerprint
+output "eks-cluster-oidc-thumbprint-out" {
+  value = data.tls_certificate.eks-tls-certificate.certificates[0].sha1_fingerprint
 }
 
-output "eks_cluster_endpoint_out" {
+output "eks-cluster-endpoint-out" {
   value = aws_eks_cluster.eks.endpoint
 }
 

@@ -1,3 +1,5 @@
-variable "eks_nat_gateway_id_in" {
+variable "eks-nat-gateway-id-in" {
 
 }
+
+variable "eks-env-in" {}

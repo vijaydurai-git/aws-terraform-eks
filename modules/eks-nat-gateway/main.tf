@@ -1,18 +1,18 @@
-resource "aws_eip" "eks_eip" {
+resource "aws_eip" "eks-eip" {
   domain = "vpc"
 
   tags = {
-    Name = "eks_eip"
+    Name = "${var.eks-env-in}-eip"
   }
 }
 
 
-resource "aws_nat_gateway" "eks_nat_gateway" {
-  allocation_id     = aws_eip.eks_eip.id
-  subnet_id         = var.eks_public_1_in
+resource "aws_nat_gateway" "eks-nat-gateway" {
+  allocation_id     = aws_eip.eks-eip.id
+  subnet_id         = var.eks-public-1-in
   connectivity_type = "public"
 
   tags = {
-    Name = "eks_nat_gateway"
+    Name = "${var.eks-env-in}-nat-gateway"
   }
 }

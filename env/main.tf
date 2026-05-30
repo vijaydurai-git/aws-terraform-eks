@@ -1,60 +1,65 @@
-module "vpc_module" {
+module "vpc-module" {
 
   source                = "../modules/eks-vpc"
-  eks_nat_gateway_id_in = module.nat_gateway_module.eks_nat_gateway_id_out
+  eks-nat-gateway-id-in = module.nat-gateway-module.eks-nat-gateway-id-out
+  eks-env-in            = var.eks-env
 
 
 }
 
-module "nat_gateway_module" {
+module "nat-gateway-module" {
 
   source          = "../modules/eks-nat-gateway"
-  eks_public_1_in = module.vpc_module.eks_public_1_out
+  eks-public-1-in = module.vpc-module.eks-public-1-out
+  eks-env-in      = var.eks-env
 
 }
 
-module "iam_module" {
+module "iam-module" {
 
   source                         = "../modules/eks-iam"
-  eks_cluster_oidc_issuer_in     = module.cluster_module.eks_cluster_oidc_issuer_out
-  eks_cluster_oidc_thumbprint_in = module.cluster_module.eks_cluster_oidc_thumbprint_out
+  eks-cluster-oidc-issuer-in     = module.cluster-module.eks-cluster-oidc-issuer-out
+  eks-cluster-oidc-thumbprint-in = module.cluster-module.eks-cluster-oidc-thumbprint-out
+  eks-env-in                     = var.eks-env
 
 }
 
-module "cluster_module" {
+module "cluster-module" {
 
   source                         = "../modules/eks-cluster"
-  eks_cluster_role_arn_in        = module.iam_module.eks_cluster_role_arn_out
-  eks_cluster_version_in         = var.eks_cluster_version
-  eks_public_1_in                = module.vpc_module.eks_public_1_out
-  eks_public_2_in                = module.vpc_module.eks_public_2_out
-  eks_private_1_in               = module.vpc_module.eks_private_1_out
-  eks_private_2_in               = module.vpc_module.eks_private_2_out
-  eks_ebs_csi_driver_role_arn_in = module.iam_module.eks_ebs_csi_driver_role_arn_out
+  eks-cluster-role-arn-in        = module.iam-module.eks-cluster-role-arn-out
+  eks-cluster-version-in         = var.eks-cluster-version
+  eks-public-1-in                = module.vpc-module.eks-public-1-out
+  eks-public-2-in                = module.vpc-module.eks-public-2-out
+  eks-private-1-in               = module.vpc-module.eks-private-1-out
+  eks-private-2-in               = module.vpc-module.eks-private-2-out
+  eks-ebs-csi-driver-role-arn-in = module.iam-module.eks-ebs-csi-driver-role-arn-out
+  eks-env-in                     = var.eks-env
 
 }
 
 
-module "node_module" {
+module "node-module" {
 
   source                         = "../modules/eks-node-group"
-  eks_cluster_id_in              = module.cluster_module.eks_cluster_id_out
-  eks_node_role_arn_in           = module.iam_module.eks_node_role_arn_out
-  eks_public_1_in                = module.vpc_module.eks_public_1_out
-  eks_public_2_in                = module.vpc_module.eks_public_2_out
-  eks_private_1_in               = module.vpc_module.eks_private_1_out
-  eks_private_2_in               = module.vpc_module.eks_private_2_out
-  eks_node_launch_template_id_in = module.node_group_template.eks_node_launch_template_id_out
-  eks_node_desired_size_in       = var.eks_node_desired_size
-  eks_node_max_size_in           = var.eks_node_max_size
-  eks_node_min_size_in           = var.eks_node_min_size
+  eks-cluster-id-in              = module.cluster-module.eks-cluster-id-out
+  eks-node-role-arn-in           = module.iam-module.eks-node-role-arn-out
+  eks-public-1-in                = module.vpc-module.eks-public-1-out
+  eks-public-2-in                = module.vpc-module.eks-public-2-out
+  eks-private-1-in               = module.vpc-module.eks-private-1-out
+  eks-private-2-in               = module.vpc-module.eks-private-2-out
+  eks-node-launch-template-id-in = module.node-group-template.eks-node-launch-template-id-out
+  eks-node-desired-size-in       = var.eks-node-desired-size
+  eks-node-max-size-in           = var.eks-node-max-size
+  eks-node-min-size-in           = var.eks-node-min-size
+  eks-env-in                     = var.eks-env
 
 }
 
-module "node_group_template" {
+module "node-group-template" {
 
   source                                       = "../modules/eks-node-group-template"
-  eks_node_group_template_instance_key_name_in = var.eks_node_group_template_instance_key_name
-  eks_node_group_template_instance_type_in     = var.eks_node_group_template_instance_type
+  eks-node-group-template-instance-key-name-in = var.eks-node-group-template-instance-key-name
+  eks-node-group-template-instance-type-in     = var.eks-node-group-template-instance-type
+  eks-env-in                                   = var.eks-env
 }
-

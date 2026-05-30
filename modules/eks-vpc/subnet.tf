@@ -1,40 +1,40 @@
-resource "aws_subnet" "eks_public_1" {
-  vpc_id                  = aws_vpc.eks_vpc.id
+resource "aws_subnet" "eks-public-1" {
+  vpc_id                  = aws_vpc.eks-vpc.id
   cidr_block              = "10.10.0.0/20"
   availability_zone       = "us-east-2a"
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "eks_public_1"
+    Name = "${var.eks-env-in}-public-1"
   }
 }
 
-resource "aws_subnet" "eks_public_2" {
-  vpc_id                  = aws_vpc.eks_vpc.id
+resource "aws_subnet" "eks-public-2" {
+  vpc_id                  = aws_vpc.eks-vpc.id
   cidr_block              = "10.10.16.0/20"
   availability_zone       = "us-east-2b"
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "eks_public_2"
+    Name = "${var.eks-env-in}-public-2"
   }
 }
 
-resource "aws_subnet" "eks_private_1" {
-  vpc_id            = aws_vpc.eks_vpc.id
+resource "aws_subnet" "eks-private-1" {
+  vpc_id            = aws_vpc.eks-vpc.id
   cidr_block        = "10.10.32.0/20"
   availability_zone = "us-east-2a"
 
   tags = {
-    Name = "eks_private_1"
+    Name = "${var.eks-env-in}-private-1"
   }
 }
 
-resource "aws_subnet" "eks_private_2" {
-  vpc_id            = aws_vpc.eks_vpc.id
+resource "aws_subnet" "eks-private-2" {
+  vpc_id            = aws_vpc.eks-vpc.id
   cidr_block        = "10.10.48.0/20"
   availability_zone = "us-east-2b"
   tags = {
-    Name = "eks_private_2"
+    Name = "${var.eks-env-in}-private-2"
   }
 }

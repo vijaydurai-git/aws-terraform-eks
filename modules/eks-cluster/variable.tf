@@ -1,14 +1,15 @@
-variable "eks_cluster_role_arn_in" {}
+variable "eks-cluster-role-arn-in" {}
 
-variable "eks_public_1_in" {}
+variable "eks-public-1-in" {}
 
-variable "eks_public_2_in" {}
+variable "eks-public-2-in" {}
 
-variable "eks_private_1_in" {}
+variable "eks-private-1-in" {}
 
-variable "eks_private_2_in" {}
+variable "eks-private-2-in" {}
 
-variable "eks_ebs_csi_driver_role_arn_in" {}
+variable "eks-ebs-csi-driver-role-arn-in" {}
 
-variable "eks_cluster_version_in" {}
+variable "eks-cluster-version-in" {}
 
+variable "eks-env-in" {}

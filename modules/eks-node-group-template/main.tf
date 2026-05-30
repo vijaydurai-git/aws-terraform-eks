@@ -1,7 +1,7 @@
-resource "aws_launch_template" "eks_node_launch_template" {
-  name_prefix   = "eks-node-group-template"
-  instance_type = var.eks_node_group_template_instance_type_in
-  key_name      = var.eks_node_group_template_instance_key_name_in
+resource "aws_launch_template" "eks-node-launch-template" {
+  name_prefix   = "${var.eks-env-in}-node-group-template"
+  instance_type = var.eks-node-group-template-instance-type-in
+  key_name      = var.eks-node-group-template-instance-key-name-in
 
 
 
@@ -18,7 +18,7 @@ resource "aws_launch_template" "eks_node_launch_template" {
     resource_type = "instance"
 
     tags = {
-      Name        = "eks-node"
+      Name        = "${var.eks-env-in}-node"
       Environment = "local"
       Owner       = "vijaydurai"
     }

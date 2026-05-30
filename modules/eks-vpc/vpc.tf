@@ -1,7 +1,7 @@
-resource "aws_vpc" "eks_vpc" {
+resource "aws_vpc" "eks-vpc" {
   cidr_block = "10.10.0.0/16"
 
   tags = {
-    Name = "eks_vpc"
+    Name = "${var.eks-env-in}-vpc"
   }
 }

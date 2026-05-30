@@ -1,17 +1,19 @@
-variable "eks_public_1_in" {}
+variable "eks-public-1-in" {}
 
-variable "eks_public_2_in" {}
+variable "eks-public-2-in" {}
 
-variable "eks_private_1_in" {}
+variable "eks-private-1-in" {}
 
-variable "eks_private_2_in" {}
+variable "eks-private-2-in" {}
 
-variable "eks_cluster_id_in" {}
+variable "eks-cluster-id-in" {}
 
-variable "eks_node_role_arn_in" {}
+variable "eks-node-role-arn-in" {}
 
-variable "eks_node_launch_template_id_in" {}
+variable "eks-node-launch-template-id-in" {}
 
-variable "eks_node_desired_size_in" {}
-variable "eks_node_max_size_in" {}
-variable "eks_node_min_size_in" {}
+variable "eks-node-desired-size-in" {}
+variable "eks-node-max-size-in" {}
+variable "eks-node-min-size-in" {}
+
+variable "eks-env-in" {}

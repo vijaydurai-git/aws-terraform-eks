@@ -1,11 +1,10 @@
-variable "eks_cluster_oidc_issuer_in" {
+variable "eks-cluster-oidc-issuer-in" {
 
 }
 
 
-variable "eks_cluster_oidc_thumbprint_in" {
+variable "eks-cluster-oidc-thumbprint-in" {
 
 }
 
-
-
+variable "eks-env-in" {}

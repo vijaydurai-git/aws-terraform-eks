@@ -1,20 +1,20 @@
-output "eks_vpc_id_out" {
-  value = aws_vpc.eks_vpc.id
+output "eks-vpc-id-out" {
+  value = aws_vpc.eks-vpc.id
 }
 
-output "eks_public_1_out" {
-  value = aws_subnet.eks_public_1.id
+output "eks-public-1-out" {
+  value = aws_subnet.eks-public-1.id
 }
 
-output "eks_public_2_out" {
-  value = aws_subnet.eks_public_2.id
+output "eks-public-2-out" {
+  value = aws_subnet.eks-public-2.id
 }
 
-output "eks_private_1_out" {
-  value = aws_subnet.eks_private_1.id
+output "eks-private-1-out" {
+  value = aws_subnet.eks-private-1.id
 }
 
 
-output "eks_private_2_out" {
-  value = aws_subnet.eks_private_2.id
+output "eks-private-2-out" {
+  value = aws_subnet.eks-private-2.id
 }

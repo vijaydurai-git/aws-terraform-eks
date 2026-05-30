@@ -1,7 +1,9 @@
-variable "eks_node_group_template_instance_key_name_in" {
+variable "eks-node-group-template-instance-key-name-in" {
 
 }
 
-variable "eks_node_group_template_instance_type_in" {
+variable "eks-node-group-template-instance-type-in" {
 
 }
+
+variable "eks-env-in" {}
