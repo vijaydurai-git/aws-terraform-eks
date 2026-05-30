@@ -10,7 +10,7 @@ resource "aws_iam_openid_connect_provider" "eks-oidc" {
 
 
 resource "aws_iam_role" "eks-cluster" {
-  name = "${var.eks-env-in}-cluster-role"
+  name = "${var.eks-env-in}-eks-cluster-role"
 
   assume_role_policy = <<POLICY
 {
@@ -34,7 +34,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSClusterPolicy" {
 }
 
 resource "aws_iam_role" "eks-node" {
-  name = "${var.eks-env-in}-node-role"
+  name = "${var.eks-env-in}-eks-node-role"
 
   assume_role_policy = <<POLICY
 {
@@ -53,7 +53,7 @@ POLICY
 }
 
 resource "aws_iam_role" "eks-ebs-csi-driver-role" {
-  name                 = "${var.eks-env-in}-AmazonEKS-EBS-CSI-DriverRole"
+  name                 = "${var.eks-env-in}-eks-AmazonEKS-EBS-CSI-DriverRole"
   path                 = "/"
   max_session_duration = 3600
 
@@ -76,7 +76,7 @@ resource "aws_iam_role" "eks-ebs-csi-driver-role" {
   })
 
   tags = {
-    Name = "${var.eks-env-in}-AmazonEKS-EBS-CSI-DriverRole"
+    Name = "${var.eks-env-in}-eks-AmazonEKS-EBS-CSI-DriverRole"
   }
 }
 

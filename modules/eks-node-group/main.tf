@@ -1,6 +1,6 @@
 resource "aws_eks_node_group" "node-grp" {
   cluster_name    = var.eks-cluster-id-in
-  node_group_name = "${var.eks-env-in}-node-group"
+  node_group_name = "${var.eks-env-in}-eks-node-group"
   node_role_arn   = var.eks-node-role-arn-in
   subnet_ids      = [var.eks-private-1-in, var.eks-private-2-in]
   capacity_type   = "ON_DEMAND"
