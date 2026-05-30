@@ -2,7 +2,7 @@ resource "aws_eip" "eks-eip" {
   domain = "vpc"
 
   tags = {
-    Name = "${var.eks-env-in}-eip"
+    Name = "${var.eks-env-in}-eks-eip"
   }
 }
 
@@ -13,6 +13,6 @@ resource "aws_nat_gateway" "eks-nat-gateway" {
   connectivity_type = "public"
 
   tags = {
-    Name = "${var.eks-env-in}-nat-gateway"
+    Name = "${var.eks-env-in}-eks-nat-gateway"
   }
 }

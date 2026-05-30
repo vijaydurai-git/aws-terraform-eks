@@ -5,7 +5,7 @@ resource "aws_subnet" "eks-public-1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.eks-env-in}-public-1"
+    Name = "${var.eks-env-in}-eks-public-1"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "eks-public-2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.eks-env-in}-public-2"
+    Name = "${var.eks-env-in}-eks-public-2"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_subnet" "eks-private-1" {
   availability_zone = "us-east-2a"
 
   tags = {
-    Name = "${var.eks-env-in}-private-1"
+    Name = "${var.eks-env-in}-eks-private-1"
   }
 }
 
@@ -35,6 +35,6 @@ resource "aws_subnet" "eks-private-2" {
   cidr_block        = "10.10.48.0/20"
   availability_zone = "us-east-2b"
   tags = {
-    Name = "${var.eks-env-in}-private-2"
+    Name = "${var.eks-env-in}-eks-private-2"
   }
 }

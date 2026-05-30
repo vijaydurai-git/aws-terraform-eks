@@ -7,7 +7,7 @@ resource "aws_route_table" "eks-public-route-table" {
   }
 
   tags = {
-    Name = "${var.eks-env-in}-public-route-table"
+    Name = "${var.eks-env-in}-eks-public-route-table"
   }
 }
 
@@ -32,7 +32,7 @@ resource "aws_route_table" "eks-private-route-table" {
   }
 
   tags = {
-    Name = "${var.eks-env-in}-private-route-table"
+    Name = "${var.eks-env-in}-eks-private-route-table"
   }
 }
 
