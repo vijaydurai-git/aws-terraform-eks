@@ -7,3 +7,5 @@
 crash.log
 env/.terraform*
 *tfplan*
+env/terraform.log
+env/nohup.out
