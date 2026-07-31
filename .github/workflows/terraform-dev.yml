@@ -1,9 +1,7 @@
 name: 'Terraform Dev (Plan & Apply)'
 
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch:
 
 permissions:
   id-token: write
