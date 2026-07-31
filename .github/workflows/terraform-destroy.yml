@@ -1,0 +1,51 @@
+name: 'Terraform Destroy (Manual)'
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to destroy'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  destroy:
+    name: 'Destroy'
+    environment: ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./env/${{ github.event.inputs.environment }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::148737623247:role/role-githubaction
+          aws-region: us-east-2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Set TFVARS filename
+        run: |
+          if [ "${{ github.event.inputs.environment }}" == "prod" ]; then
+            echo "TFVARS_FILE=prod-eks-cluster.tfvars" >> $GITHUB_ENV
+          else
+            echo "TFVARS_FILE=dev-eks-cluster.tfvars" >> $GITHUB_ENV
+          fi
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve -var-file=${{ env.TFVARS_FILE }}

@@ -1,6 +1,6 @@
 module "vpc-module" {
 
-  source                = "../modules/eks-vpc"
+  source                = "../../modules/eks-vpc"
   eks-nat-gateway-id-in = module.nat-gateway-module.eks-nat-gateway-id-out
   eks-env-in            = var.eks-env
 
@@ -9,7 +9,7 @@ module "vpc-module" {
 
 module "nat-gateway-module" {
 
-  source          = "../modules/eks-nat-gateway"
+  source          = "../../modules/eks-nat-gateway"
   eks-public-1-in = module.vpc-module.eks-public-1-out
   eks-env-in      = var.eks-env
 
@@ -17,7 +17,7 @@ module "nat-gateway-module" {
 
 module "iam-module" {
 
-  source                         = "../modules/eks-iam"
+  source                         = "../../modules/eks-iam"
   eks-cluster-oidc-issuer-in     = module.cluster-module.eks-cluster-oidc-issuer-out
   eks-cluster-oidc-thumbprint-in = module.cluster-module.eks-cluster-oidc-thumbprint-out
   eks-env-in                     = var.eks-env
@@ -26,7 +26,7 @@ module "iam-module" {
 
 module "cluster-module" {
 
-  source                         = "../modules/eks-cluster"
+  source                         = "../../modules/eks-cluster"
   eks-cluster-role-arn-in        = module.iam-module.eks-cluster-role-arn-out
   eks-cluster-version-in         = var.eks-cluster-version
   eks-public-1-in                = module.vpc-module.eks-public-1-out
@@ -41,7 +41,7 @@ module "cluster-module" {
 
 module "node-module" {
 
-  source                         = "../modules/eks-node-group"
+  source                         = "../../modules/eks-node-group"
   eks-cluster-id-in              = module.cluster-module.eks-cluster-id-out
   eks-node-role-arn-in           = module.iam-module.eks-node-role-arn-out
   eks-public-1-in                = module.vpc-module.eks-public-1-out
@@ -58,7 +58,7 @@ module "node-module" {
 
 module "node-group-template" {
 
-  source                                       = "../modules/eks-node-group-template"
+  source                                       = "../../modules/eks-node-group-template"
   eks-node-group-template-instance-key-name-in = var.eks-node-group-template-instance-key-name
   eks-node-group-template-instance-type-in     = var.eks-node-group-template-instance-type
   eks-env-in                                   = var.eks-env
