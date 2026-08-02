@@ -1,4 +1,4 @@
-name: 'Terraform Dev (Plan & Apply)'
+name: 'Terraform EKS Dev (Plan & Apply)'
 
 on:
   workflow_dispatch:
