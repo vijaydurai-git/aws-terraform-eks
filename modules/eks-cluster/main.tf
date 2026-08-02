@@ -11,7 +11,7 @@ resource "aws_eks_cluster" "eks" {
 
   access_config {
     authentication_mode                         = "API_AND_CONFIG_MAP"
-    bootstrap_cluster_creator_admin_permissions = true
+    bootstrap_cluster_creator_admin_permissions = false
   }
 }
 
@@ -30,4 +30,22 @@ resource "aws_eks_addon" "aws-ebs-csi-driver" {
   addon_name                  = "aws-ebs-csi-driver"
   service_account_role_arn    = var.eks-ebs-csi-driver-role-arn-in
   resolve_conflicts_on_update = "PRESERVE"
+}
+
+data "aws_caller_identity" "eks-admin-account" {}
+
+resource "aws_eks_access_entry" "eks-admin-user" {
+  cluster_name  = aws_eks_cluster.eks.name
+  principal_arn = "arn:aws:iam::${data.aws_caller_identity.eks-admin-account.account_id}:user/${var.eks-admin-username-in}"
+  type          = "STANDARD"
+}
+
+resource "aws_eks_access_policy_association" "eks-admin-policy" {
+  cluster_name  = aws_eks_cluster.eks.name
+  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+  principal_arn = aws_eks_access_entry.eks-admin-user.principal_arn
+
+  access_scope {
+    type = "cluster"
+  }
 }

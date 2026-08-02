@@ -34,6 +34,7 @@ module "cluster-module" {
   eks-private-1-in               = module.vpc-module.eks-private-1-out
   eks-private-2-in               = module.vpc-module.eks-private-2-out
   eks-ebs-csi-driver-role-arn-in = module.iam-module.eks-ebs-csi-driver-role-arn-out
+  eks-admin-username-in          = var.eks-admin-username
   eks-env-in                     = var.eks-env
 
 }
