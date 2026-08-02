@@ -1,4 +1,4 @@
-name: 'Terraform Destroy (Dev & Prod)'
+name: 'Terraform EKS Destroy (Dev & Prod)'
 
 on:
   workflow_dispatch:
