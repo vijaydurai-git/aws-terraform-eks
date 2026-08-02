@@ -5,3 +5,4 @@ variable "eks-node-desired-size" {}
 variable "eks-node-min-size" {}
 variable "eks-cluster-version" {}
 variable "eks-env" {}
+variable "eks-admin-username" {}

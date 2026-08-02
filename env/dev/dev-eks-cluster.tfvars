@@ -5,3 +5,4 @@ eks-node-desired-size                     = 1
 eks-node-min-size                         = 1
 eks-cluster-version                       = "1.33"
 eks-env                                   = "dev"
+eks-admin-username                        = "vijaydurai"

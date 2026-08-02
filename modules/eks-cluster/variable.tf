@@ -13,3 +13,5 @@ variable "eks-ebs-csi-driver-role-arn-in" {}
 variable "eks-cluster-version-in" {}
 
 variable "eks-env-in" {}
+
+variable "eks-admin-username-in" {}

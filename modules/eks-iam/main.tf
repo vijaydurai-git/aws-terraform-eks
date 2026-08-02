@@ -86,7 +86,7 @@ resource "aws_iam_role_policy_attachment" "eks-ebs-csi-driver-role-attach" {
 }
 
 
-resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
+resource "aws_iam_role_policy_attachment" "AmazonEKS-CNI-Policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.eks-node.id
 }
